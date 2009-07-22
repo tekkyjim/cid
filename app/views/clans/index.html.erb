@@ -1,0 +1,21 @@
+<h1>Listing Clans</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <%- @clans.each do |clan|%>
+    <tr>
+      <td><%=h clan.name %></td>
+      <td><%=h clan.description %></td>
+    
+      <td><%=link_to 'Show', object_url(clan) %></td>
+      <td><%=link_to 'Edit', edit_object_url(clan) %></td>
+      <td><%=link_to 'Destroy', object_url(clan), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+<br/>
+
+<%= link_to 'New Clan', new_object_url %>
