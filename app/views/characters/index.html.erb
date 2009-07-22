@@ -1,0 +1,23 @@
+<h1>Listing Characters</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Bio</th>
+    <th>User</th>
+  </tr>
+  <%- @characters.each do |character|%>
+    <tr>
+      <td><%=h character.name %></td>
+      <td><%=h character.bio %></td>
+      <td><%=h character.user_id %></td>
+    
+      <td><%=link_to 'Show', object_url(character) %></td>
+      <td><%=link_to 'Edit', edit_object_url(character) %></td>
+      <td><%=link_to 'Destroy', object_url(character), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+<br/>
+
+<%= link_to 'New Character', new_object_url %>
