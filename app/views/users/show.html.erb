@@ -1,6 +1,8 @@
 <% title "Profile for " + @user.login %>
 
-<%= link_to "Edit Profile", edit_user_path(@user) %>
+<% if current_user && current_user.role > 1 || current_user == @user %>
+  <p><%= link_to "Edit Profile", edit_user_path(@user) %></p>
+<% end %>  
 
 
 <p>

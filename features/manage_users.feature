@@ -15,12 +15,28 @@ Feature: Manage users
 
  Scenario: Login test
      Given the following user records
-        | login | password | role |
-        | bob      | secret   | 1 |
-        | admin    | secret   | 2  |
+        | login     | password | role   |
+        | bob       | secret   | 1      |
+        | admin     | secret   | 2      |
      And I am logged in as "admin" with password "secret"
      When I visit profile for "bob"
      Then I should see "Edit Profile"
+
+ Scenario Outline: Show or hide edit profile link
+    Given the following user records
+        | login       | password| role|
+        | bob        | secret  | 1|
+        | admin      | secret  | 2 |
+    Given I am logged in as "<login>" with password "secret"
+    When I visit profile for "<profile>"
+    Then I should <action>
+
+    Examples:
+      | login | profile | action                 |
+      | admin | bob     | see "Edit Profile"     |
+      | bob   | bob     | see "Edit Profile"     |
+      |       | bob     | not see "Edit Profile" |
+      | bob   | admin   | not see "Edit Profile" |
 
 
 
