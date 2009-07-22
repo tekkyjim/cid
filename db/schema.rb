@@ -9,12 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090720192609) do
+ActiveRecord::Schema.define(:version => 20090722053828) do
 
   create_table "characters", :force => true do |t|
     t.string   "name",       :null => false
     t.string   "bio",        :null => false
     t.integer  "user_id",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "clan_id"
+  end
+
+  create_table "clans", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

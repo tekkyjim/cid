@@ -1,20 +1,11 @@
-Given /^the following users:$/ do |users|
-  Users.create!(users.hashes)
+Given /^I am logged in as "([^\"]*)" with password "([^\"]*)"$/ do |username, password|
+  visit login_url
+  fill_in "Username", :with => username
+  fill_in "Password", :with => password
+  click_button "Log in"
 end
 
-When /^I delete the (\d+)(?:st|nd|rd|th) users$/ do |pos|
-  visit users_url
-  within("table > tr:nth-child(#{pos.to_i+1})") do
-    click_link "Destroy"
-  end
-end
-
-Then /^I should see the following users:$/ do |users|
-  users.rows.each_with_index do |row, i|
-    row.each_with_index do |cell, j|
-      response.should have_selector("table > tr:nth-child(#{i+2}) > td:nth-child(#{j+1})") { |td|
-        td.inner_text.should == cell
-      }
-    end
-  end
-end
+When /^I visit profile for "([^\"]*)"$/ do |username|
+  user = User.find_by_username!(username)
+  visit user_url(user)
+end  

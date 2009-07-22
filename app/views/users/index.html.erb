@@ -1,0 +1,23 @@
+<h1>Listing Users</h1>
+
+<table>
+  <tr>
+    <th>Login</th>
+  </tr>
+  <%- @users.each do |user|%>
+     
+      <tr>
+      <td><%=h user.login %></td>
+        <th>Characters</th>
+        <% user.characters.each do |character| %>
+            <td><%=h character.name %></td>
+              <% end %>
+
+      <td><%=link_to 'Show', object_url(user) %></td>
+      <td><%=link_to 'Edit', edit_object_url(user) %></td>
+      <td><%=link_to 'Destroy', object_url(user), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+<br/>
+
