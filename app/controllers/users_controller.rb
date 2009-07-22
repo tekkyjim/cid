@@ -10,22 +10,22 @@ class UsersController < ResourceController::Base
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Account registered!"
-      redirect_back_or_default account_url
+      redirect_to(:controller => 'clans', :action => :index)
     else
       render :action => :new
     end
   end
 
   def show
-    @user = @current_user
+    @user = User.find(params[:id])
   end
 
   def edit
-    @user = @current_user
+    @user = User.find(params[:id])
   end
 
   def update
-    @user = @current_user # makes our views "cleaner" and more consistent
+    @user = User.find(params[:id]) # makes our views "cleaner" and more consistent
     if @user.update_attributes(params[:user])
       flash[:notice] = "Account updated!"
       redirect_to account_url

@@ -1,8 +1,9 @@
 Given /^the following (.+) records?$/ do |factory, table|
-  unless factory =! user
-    table.hashes = table.hashes
-  end
     table.hashes.each do |hash|
-    Factory(factory, hash)
-  end
-end  
+      if factory == "user"
+        Factory(factory, hash.merge("single_access_token"  => Authlogic::Random.friendly_token))
+      else
+        Factory(factory, hash)
+      end
+    end
+end

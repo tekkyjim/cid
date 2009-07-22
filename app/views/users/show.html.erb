@@ -1,6 +1,16 @@
+<% title "Profile for " + @user.login %>
+
+<%= link_to "Edit Profile", edit_user_path(@user) %>
+
+
 <p>
   <b>Login:</b>
   <%=h @user.login %>
+</p>
+
+<p>
+  <b>Login:</b>
+  <%=h @user.email %>
 </p>
 
 <p>
@@ -33,5 +43,3 @@
   <%=h @user.current_login_ip %>
 </p>
 
-
-<%= link_to 'Edit', edit_account_path %>
