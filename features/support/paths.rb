@@ -11,13 +11,6 @@ module NavigationHelpers
     when /the homepage/
       '/'
 
-      when /new users page/
-        new_account_path
-
-
-
-
-    
     # Add more mappings here.
     # Here is a more fancy example:
     #

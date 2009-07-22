@@ -28,7 +28,7 @@ class UsersController < ResourceController::Base
     @user = User.find(params[:id]) # makes our views "cleaner" and more consistent
     if @user.update_attributes(params[:user])
       flash[:notice] = "Account updated!"
-      redirect_to account_url
+      redirect_to users_url
     else
       render :action => :edit
     end
