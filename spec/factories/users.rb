@@ -1,9 +1,10 @@
-Factory.define :user , :class => User do |u|
-  u.login "bob"
-  u.password "secret"
-  u.password_confirmation "secret"
-  u.email "bob@gmail.com"
-  u.single_access_token "k3cFzLIQnZ4MHRmJvJzg"
+Factory.define :user , :class => User do |f|
+  f.sequence(:login) { |n| "foo#{n}" }
+  f.password "foobar"
+  f.password_confirmation  { |u| u.password }
+  f.sequence(:email) { |n| "foo#{n}@example.com" }
+  f.single_access_token Authlogic::Random.friendly_token
+  f.role 1
 end
 
 Factory.define :invalid_user , :class => User do |u|

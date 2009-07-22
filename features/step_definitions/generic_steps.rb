@@ -1,5 +1,8 @@
 Given /^the following (.+) records?$/ do |factory, table|
-  table.hashes.each do |hash|
+  unless factory =! user
+    table.hashes = table.hashes
+  end
+    table.hashes.each do |hash|
     Factory(factory, hash)
   end
 end  
