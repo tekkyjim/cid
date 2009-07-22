@@ -4,7 +4,7 @@ describe CharactersController do
   describe "Authenticated examples" do
     before(:each) do
       activate_authlogic
-      UserSession.create Factory.build(:valid_user)
+      UserSession.create Factory.build(:user)
   end
   describe "handling GET /characters" do
 

@@ -1,4 +1,4 @@
-Factory.define :valid_user , :class => User do |u|
+Factory.define :user , :class => User do |u|
   u.login "bob"
   u.password "secret"
   u.password_confirmation "secret"
