@@ -1,13 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
     <title><%= h(yield(:title) || "Untitled") %></title>
     <%= stylesheet_link_tag 'application' %>
     <%= yield(:head) %>
   </head>
-  <body>
-    <div id="container">
+<body>
+<div id="maincontainer">
+    <div id="topsection">
+      <div class="innertube">
+        <%= image_tag 'title.jpg', :width => 840 %>
+        <%- if show_title? -%>
+            <h1><%=h yield(:title) %></h1>
+        <%- end -%>
       <div id="user_nav">
         <% if current_user %>
             <%= link_to current_user.login, edit_user_path(current_user.id) %> |
@@ -17,16 +23,33 @@
             <%= link_to "Login", login_path %>
         <% end %>
       </div>
+      </div>
+    </div>
 
-      
-      <%- if show_title? -%>
-        <h1><%=h yield(:title) %></h1>
-      <%- end -%>
+<div id="contentwrapper">
+<div id="contentcolumn">
+<div class="innertube">
       <%- flash.each do |name, msg| -%>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <%- end -%>
-      
-      <%= yield %>
-    </div>
-  </body>
+    <%- end -%>
+  <%= yield %> </div>
+</div>
+</div>
+
+<div id="leftcolumn">
+<div class="innertube"> <%= render(:partial => 'pages/events') %> </div>
+
+</div>
+
+<div id="rightcolumn">
+<div class="innertube"><%= render(:partial => 'pages/events') %> </div>
+
+<div id="rightcolumn2">
+<div class="innertube"><%= render(:partial => 'pages/events') %> </div>
+</div>
+  </div>
+<div id="footer"></div>
+
+</div>
+</body>
 </html>

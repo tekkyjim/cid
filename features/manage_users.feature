@@ -3,6 +3,10 @@ Feature: Manage users
   As a admin
   I want to be able to manage users.
 
+  Background:
+    Given the following page records
+        |name|
+        |home|
   Scenario: Register new user
     Given I am on the homepage
     And I follow "Register"

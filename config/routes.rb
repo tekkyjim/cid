@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :pages
+
   map.resources :clans
   map.resources :characters
   map.login "login", :controller => "user_sessions", :action => "new"
@@ -6,7 +8,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :user_session
   map.resource :account, :controller => "users"
   map.resources :users
-  map.root :controller => "clans", :action => "index" # optional, this just sets the root route
+  map.root :controller => "pages", :action => "show" , :id => 1# optional, this just sets the root route
+  map.connect ":id", :controller => "pages", :action => "show"
+  map.connect ":id.html", :controller => "pages", :action => "show"
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action

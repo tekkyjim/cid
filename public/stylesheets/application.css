@@ -1,15 +1,88 @@
-body {
-  background-color: #4B7399;
-  font-family: Verdana, Helvetica, Arial;
-  font-size: 14px;
+/* @override http://localhost:3000/stylesheets/application.css?1248593677 */
+
+body{
+margin:0;
+padding:0;
+line-height: 1.5em;
+background: #black;
+color: white;
 }
 
-a img {
-  border: none;
+b{font-size: 110%;}
+em{color: red;}
+
+#maincontainer{
+width: 840px; /*Width of main container*/
+margin: 0 auto; /*Center container on page*/
 }
 
-a {
-  color: #0000FF;
+#topsection{
+background: #black;
+color: white;
+height: 150px; /*Height of top section*/
+}
+
+#topsection h1{
+margin: 0;
+padding-top: 15px;
+}
+
+#contentwrapper{
+float: left;
+width: 100%;
+}
+
+#contentcolumn{
+margin: 0 190px 0 180px; /*Margins for content column. Should be "0 RightColumnWidth 0 LeftColumnWidth*/
+color: #white;
+}
+
+#leftcolumn{
+float: left;
+width: 180px; /*Width of left column in pixel*/
+margin-left: -840px; /*Set margin to that of -(MainContainerWidth)*/
+background: #black;
+	color: white;
+	border: 1px	solid white;
+}
+
+#rightcolumn{
+float: left;
+width: 189px; /*Width of right column*/
+margin-left: -191px; /*Set left margin to -(RightColumnWidth)*/
+background: #black;
+color: white;
+border: 1px solid white;
+
+}
+
+#footer{
+clear: left;
+width: 100%;
+background: black;
+color: #FFF;
+text-align: center;
+padding: 4px 0;
+}
+
+#footer a{
+color: white;
+}
+
+.innertube{
+margin: 10px; /*Margins for inner DIV inside each column (to provide padding)*/
+margin-top: 0;
+}
+
+#user_nav{
+float: right;
+}
+
+#topsection div.innertube img {
+	border: 1px solid #red;
+	height: 80px;
+	width: 800px;
+	margin-top: 10px;
 }
 
 .clear {
@@ -18,23 +91,16 @@ a {
   overflow: hidden;
 }
 
-#container {
-  width: 75%;
-  margin: 0 auto;
-  background-color: #FFF;
-  padding: 20px 40px;
-  border: solid 1px black;
-  margin-top: 20px;
-}
-
 #flash_notice, #flash_error {
   padding: 5px 8px;
   margin: 10px 0;
+  color: black;
 }
 
 #flash_notice {
   background-color: #CFC;
   border: solid 1px #6C6;
+
 }
 
 #flash_error {
@@ -53,6 +119,7 @@ a {
   padding-bottom: 12px;
   margin-bottom: 20px;
   background-color: #f0f0f0;
+    color: black;
 }
 
 #errorExplanation h2 {
@@ -78,8 +145,4 @@ a {
 #errorExplanation ul li {
   font-size: 12px;
   list-style: disc;
-}
-#user_nav {
-  float: right;
-  font-size: 12px;
 }
