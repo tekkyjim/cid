@@ -5,12 +5,15 @@
     <th>Name</th>
     <th>Bio</th>
     <th>User</th>
+    <th>Clan</th>
   </tr>
   <%- @characters.each do |character|%>
     <tr>
       <td><%=h character.name %></td>
       <td><%=h character.bio %></td>
-      <td><%=h character.user_id %></td>
+      <td><%=h User.find(character.user_id).login %></td>
+      <td><%=h Clan.find(character.clan_id).name %></td>
+
     
       <td><%=link_to 'Show', object_url(character) %></td>
       <td><%=link_to 'Edit', edit_object_url(character) %></td>

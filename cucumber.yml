@@ -1,1 +1,4 @@
-default: --format pretty features
+default: features -r features
+focus: features -r features -t focus
+autotest: features -r features --color --format pretty -t focus
+autotest-all: features -r features --color --format progress -t focus

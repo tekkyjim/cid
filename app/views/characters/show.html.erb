@@ -5,7 +5,10 @@
   <strong>Bio:</strong><%=h @character.bio %>
 </p>
 <p>
-  <strong>User:</strong><%=h @character.user_id %>
+  <strong>User:</strong><%=h User.find(@character.user_id).login %>
+</p>
+<p>
+  <strong>Clan:</strong>  <%=h Clan.find(@character.clan_id).name %>
 </p>
 
 <%= link_to 'Edit', edit_object_url %>

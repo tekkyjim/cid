@@ -9,8 +9,8 @@ module NavigationHelpers
     case page_name
     
     when /the homepage/
-         root_path
-
+      '/'
+    
     # Add more mappings here.
     # Here is a more fancy example:
     #
