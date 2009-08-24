@@ -19,7 +19,7 @@
             <%= link_to current_user.login, edit_user_path(current_user.id) %> |
             <%= link_to "Logout", logout_path %>
             <% if current_user.role >= 3 %>
-            <%= link_to "Admin Menu", admin_menu %>
+            <%= link_to "Admin Menu", pages_path %>
         <% end %>
         <% else %>
             <%= link_to "Register", new_user_path %> |

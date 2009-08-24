@@ -2,13 +2,14 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :pages
 
   map.resources :clans
+  map.resource  :pages
   map.resources :characters
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"# The priority is based upon order of creation: first created -> highest priority.
   map.resource :user_session
   map.resource :account, :controller => "users"
   map.resources :users
-  map.root :controller => "pages", :action => "show" , :id => 1# optional, this just sets the root route
+  map.root :controller => "pages", :action => "show", :id => "home"
   map.connect ":id", :controller => "pages", :action => "show"
   map.connect ":id.html", :controller => "pages", :action => "show"
   # Sample of regular route:

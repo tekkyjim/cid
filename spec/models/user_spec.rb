@@ -6,6 +6,7 @@ describe User do
       :login => "NewUser",
       :password => "12345678",
       :password_confirmation => "12345678",
+      :city_id => "middlesborough",
       :email => "newuser@newuser.com",
     }
   end

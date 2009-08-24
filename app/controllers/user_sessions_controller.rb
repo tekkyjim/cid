@@ -11,7 +11,7 @@ class UserSessionsController < ApplicationController
     if @user_session.save
       flash[:notice] = "Login successful!"
      # redirect_back_or_default account_url
-      redirect_to(:controller => 'clans', :action => :index)
+      redirect_to(:controller => 'pages', :action => :show, :id => 1)
     else
       render :action => :new
     end
@@ -21,6 +21,6 @@ class UserSessionsController < ApplicationController
     current_user_session.destroy
     flash[:notice] = "Logout successful!"
    # redirect_back_or_default new_user_session_url
-    redirect_to(:controller => 'clans', :action => :index)
+    redirect_to(:controller => 'pages', :action => :show, :id => 1)
   end
 end

@@ -14,4 +14,8 @@ end
 When /^I visit profile for "([^\"]*)"$/ do |username|
   user = User.find_by_login!(username)
   visit user_url(user)
-end  
+end
+
+Given /^my active city is "([^\"]*)"$/ do |city|
+  UserSession.current_user.city = city
+end

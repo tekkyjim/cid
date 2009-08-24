@@ -4,6 +4,8 @@
 <%= form.label :email %><br />
 <%= form.text_field :email %><br />
 <br />
+<%= form.label :city_id %>
+<%= form.collection_select :city_id, City.all(:order => "name"), :id , :name %>
 <%= form.label :password, form.object.new_record? ? nil : "Change password" %><br />
 <%= form.password_field :password %><br />
 <br />

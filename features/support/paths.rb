@@ -10,7 +10,8 @@ module NavigationHelpers
     
     when /the homepage/
       '/'
-    
+      when /the admin menu/
+        pages_path
     # Add more mappings here.
     # Here is a more fancy example:
     #

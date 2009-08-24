@@ -6,8 +6,7 @@ describe Character do
   end
 
   it "should be valid" do
-    @character.should be_valid
-    @character.save!
+    @character.should be_valid  
   end
   it "should be invalid" do
     Factory.build(:invalid_character).should be_invalid
